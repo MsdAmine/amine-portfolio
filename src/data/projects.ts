@@ -18,6 +18,7 @@ export const featuredProjects = [
       "Support ticketing and institutional management",
     ],
     github: "https://github.com/MsdAmine/cspj-mini-mail",
+    image: "/projects/cspj-mail.png",
   },
 
   {
@@ -41,6 +42,7 @@ export const featuredProjects = [
       "Redis caching and notification streams",
     ],
     github: "https://github.com/MsdAmine/artisan-marketplace",
+    image: "/projects/artisan-marketplace.png",
   },
 
   {
@@ -63,6 +65,7 @@ export const featuredProjects = [
     ],
     github: "https://github.com/MsdAmine/SafeBite",
     live: "https://nutrisafe-website.vercel.app/",
+    image: "/projects/nutrisafe.png",
   },
 ];
 

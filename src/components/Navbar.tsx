@@ -1,165 +1,56 @@
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { useState } from "react";
+
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
+  { label: "Contact", href: "#contact" },
+];
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a
-          href="#home"
-          onClick={closeMenu}
-          className="text-lg font-bold"
-        >
-          Amine Moussaid
-        </a>
+    <header className="fixed top-0 left-0 right-0 z-50">
+      <nav className="border-b border-slate-800/80 bg-[#0b0f14]/85 backdrop-blur-md">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="h-16 flex items-center justify-between">
 
-        {/* Desktop navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          <a
-            href="#about"
-            className="text-slate-300 hover:text-sky-400 transition"
-          >
-            About
-          </a>
-
-          <a
-            href="#projects"
-            className="text-slate-300 hover:text-sky-400 transition"
-          >
-            Projects
-          </a>
-
-          <a
-            href="#skills"
-            className="text-slate-300 hover:text-sky-400 transition"
-          >
-            Skills
-          </a>
-
-          <a
-            href="#experience"
-            className="text-slate-300 hover:text-sky-400 transition"
-          >
-            Experience
-          </a>
-
-          <a
-            href="#education"
-            className="text-slate-300 hover:text-sky-400 transition"
-          >
-            Education
-          </a>
-
-          <a
-            href="#contact"
-            className="text-slate-300 hover:text-sky-400 transition"
-          >
-            Contact
-          </a>
-
-          <div className="flex items-center gap-4 border-l border-slate-700 pl-6">
+            {/* Logo */}
             <a
-              href="https://github.com/MsdAmine"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-              className="text-slate-300 hover:text-sky-400 transition"
+              href="#home"
+              className="font-semibold tracking-tight text-slate-100 hover:text-sky-400 transition"
             >
-              <FaGithub size={19} />
+              AM
             </a>
 
-            <a
-              href="https://www.linkedin.com/in/amine-msd/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-              className="text-slate-300 hover:text-sky-400 transition"
-            >
-              <FaLinkedin size={19} />
-            </a>
-          </div>
-        </div>
+            {/* Desktop navigation */}
+            <div className="hidden lg:flex items-center gap-7">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-slate-400 hover:text-slate-100 transition"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
 
-        {/* Mobile menu button */}
-        <button
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-slate-300 hover:text-sky-400 transition"
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isOpen}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile navigation */}
-      {isOpen && (
-        <div className="md:hidden border-t border-slate-800 bg-slate-950">
-          <div className="px-6 py-4 flex flex-col gap-4">
-            <a
-              href="#about"
-              onClick={closeMenu}
-              className="text-slate-300 hover:text-sky-400 transition"
-            >
-              About
-            </a>
-
-            <a
-              href="#projects"
-              onClick={closeMenu}
-              className="text-slate-300 hover:text-sky-400 transition"
-            >
-              Projects
-            </a>
-
-            <a
-              href="#skills"
-              onClick={closeMenu}
-              className="text-slate-300 hover:text-sky-400 transition"
-            >
-              Skills
-            </a>
-
-            <a
-              href="#experience"
-              onClick={closeMenu}
-              className="text-slate-300 hover:text-sky-400 transition"
-            >
-              Experience
-            </a>
-
-            <a
-              href="#education"
-              onClick={closeMenu}
-              className="text-slate-300 hover:text-sky-400 transition"
-            >
-              Education
-            </a>
-
-            <a
-              href="#contact"
-              onClick={closeMenu}
-              className="text-slate-300 hover:text-sky-400 transition"
-            >
-              Contact
-            </a>
-
-            <div className="flex gap-5 pt-2 border-t border-slate-800">
+            {/* Desktop social links */}
+            <div className="hidden lg:flex items-center gap-4">
               <a
                 href="https://github.com/MsdAmine"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
-                className="text-slate-300 hover:text-sky-400 transition"
+                className="text-slate-500 hover:text-sky-400 transition"
               >
-                <FaGithub size={20} />
+                <FaGithub size={18} />
               </a>
 
               <a
@@ -167,15 +58,81 @@ function Navbar() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="text-slate-300 hover:text-sky-400 transition"
+                className="text-slate-500 hover:text-sky-400 transition"
               >
-                <FaLinkedin size={20} />
+                <FaLinkedin size={18} />
+              </a>
+
+              <a
+                href="#contact"
+                className="ml-2 rounded-md border border-slate-700 px-4 py-2 text-xs font-medium text-slate-300 hover:border-sky-400 hover:text-sky-400 transition"
+              >
+                Contact
               </a>
             </div>
+
+            {/* Mobile menu button */}
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              className="lg:hidden text-slate-300 hover:text-sky-400 transition"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
+
+          {/* Mobile navigation */}
+          {isOpen && (
+            <div className="lg:hidden border-t border-slate-800 py-5">
+              <div className="flex flex-col gap-1">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="rounded-md px-3 py-3 text-sm text-slate-400 hover:bg-slate-800/60 hover:text-slate-100 transition"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-5 mt-5 pt-5 border-t border-slate-800">
+                <a
+                  href="https://github.com/MsdAmine"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                  className="text-slate-500 hover:text-sky-400 transition"
+                >
+                  <FaGithub size={19} />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/amine-msd/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                  className="text-slate-500 hover:text-sky-400 transition"
+                >
+                  <FaLinkedin size={19} />
+                </a>
+
+                <a
+                  href="#contact"
+                  onClick={() => setIsOpen(false)}
+                  className="ml-auto text-sm font-medium text-sky-400"
+                >
+                  Contact →
+                </a>
+              </div>
+            </div>
+          )}
         </div>
-      )}
-    </nav>
+      </nav>
+    </header>
   );
 }
 

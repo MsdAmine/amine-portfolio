@@ -1,41 +1,66 @@
+import { ArrowUpRight, BriefcaseBusiness, CalendarDays } from "lucide-react";
+
 const experiences = [
   {
-    role: "Full-Stack Developer",
-    company: "Conseil Supérieur du Pouvoir Judiciaire (CSPJ)",
-    period: "July 2026 – September 2026",
+    period: "Jul 2026 — Sep 2026",
+    company: "Conseil Supérieur du Pouvoir Judiciaire",
+    role: "Software Engineering Intern",
+    type: "Internship",
     description:
-      "Developed a secure institutional messaging platform (CSPJ Mail) designed for multi-user communication within a professional environment.",
-    highlights: [
-      "Designed and developed REST APIs with ASP.NET Core / .NET 10 and a React.js frontend.",
-      "Implemented JWT authentication, TOTP-based two-factor authentication, and secure password reset.",
-      "Applied security measures including XSS and IDOR protection, rate limiting, and audit logging.",
-      "Developed multi-user messaging features including conversation threads, attachments, and groups.",
-      "Built a bilingual Arabic/French interface with RTL support and modeled the system using UML.",
+      "Developed a secure institutional messaging platform designed for internal communication and administrative workflows.",
+    technologies: [
+      "ASP.NET Core 10",
+      ".NET 10",
+      "React",
+      "SQL Server",
+      "JWT",
+      "TOTP 2FA",
     ],
+    highlights: [
+      "Built REST APIs and a React-based frontend",
+      "Implemented JWT authentication and TOTP-based two-factor authentication",
+      "Developed messaging, conversations, attachments, and group workflows",
+      "Applied security measures including XSS/IDOR protection, rate limiting, and audit logging",
+      "Implemented bilingual Arabic/French support with RTL interface handling",
+    ],
+    featured: true,
   },
   {
-    role: "Systems & Software Tools Intern",
+    period: "Jul 2025 — Aug 2025",
     company: "SNRT",
-    period: "July 2025 – August 2025",
+    role: "Systems & Software Tools Intern",
+    type: "Internship",
     description:
-      "Completed an internship within the technical department of SNRT focused on analyzing and optimizing an Audio over IP infrastructure.",
-    highlights: [
-      "Analyzed and optimized an Audio over IP infrastructure based on Dante technology.",
-      "Used monitoring and supervision tools such as Dante Controller and Cisco/Dell CLI.",
-      "Configured and standardized network equipment through software interfaces and command-line tools.",
+      "Worked with the technical department on Audio over IP infrastructure and network equipment configuration.",
+    technologies: [
+      "Dante",
+      "Dante Controller",
+      "Cisco",
+      "Dell CLI",
+      "Networking",
     ],
+    highlights: [
+      "Worked with Dante-based Audio over IP infrastructure",
+      "Configured and standardized network equipment",
+      "Used Dante Controller and Cisco/Dell command-line interfaces",
+      "Participated in technical infrastructure operations",
+    ],
+    featured: false,
   },
   {
-    role: "IT Intern",
+    period: "Sep 2024 — Oct 2024",
     company: "INRA",
-    period: "September 2024 – October 2024",
+    role: "IT Intern",
+    type: "Internship",
     description:
-      "Completed an introductory internship within the IT department, gaining practical exposure to software development and IT operations.",
+      "Participated in software project activities while gaining practical experience in application development and technical support.",
+    technologies: ["C#", "Angular", "IT Support"],
     highlights: [
-      "Discovered the software project management process within an IT department.",
-      "Worked with technologies and tools used in professional environments, including C# and Angular.",
-      "Provided technical and IT assistance to users.",
+      "Contributed to software project management activities",
+      "Worked with C# and Angular",
+      "Provided technical and IT support",
     ],
+    featured: false,
   },
 ];
 
@@ -43,60 +68,153 @@ function Experience() {
   return (
     <section id="experience" className="py-24">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-2xl mb-12">
-          <p className="text-sky-400 font-medium mb-3">
-            Experience
-          </p>
+        {/* Section heading */}
+        <div className="max-w-2xl mb-14">
+          <p className="text-sky-400 font-medium mb-3">Experience</p>
 
-          <h2 className="text-4xl font-bold mb-4">
-            Where I’ve Applied My Skills
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5">
+            Where I&apos;ve Worked
           </h2>
 
-          <p className="text-slate-400 text-lg">
-            Professional experience gained through internships and
-            real-world software development projects.
+          <p className="text-slate-400 text-lg leading-relaxed">
+            Practical experience across software development, IT systems, and
+            technical infrastructure.
           </p>
         </div>
 
-        <div className="space-y-6">
-          {experiences.map((experience) => (
-            <div
-              key={`${experience.company}-${experience.role}`}
-              className="rounded-2xl border border-slate-700 bg-slate-800/50 p-6 md:p-8"
-            >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-                <div>
-                  <h3 className="text-2xl font-semibold">
-                    {experience.role}
-                  </h3>
+        {/* Timeline */}
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-[7px] top-2 bottom-2 hidden md:block w-px bg-slate-800" />
 
-                  <p className="text-sky-400 mt-1">
-                    {experience.company}
-                  </p>
+          <div className="space-y-10">
+            {experiences.map((experience, index) => (
+              <article
+                key={`${experience.company}-${experience.period}`}
+                className="relative md:pl-12"
+              >
+                {/* Timeline marker */}
+                <div className="absolute left-0 top-2 hidden md:flex h-4 w-4 items-center justify-center rounded-full border border-sky-400/40 bg-[#0b0f14]">
+                  <span
+                    className={`h-1.5 w-1.5 rounded-full ${
+                      experience.featured ? "bg-sky-400" : "bg-slate-600"
+                    }`}
+                  />
                 </div>
 
-                <span className="text-slate-400">
-                  {experience.period}
+                <div
+                  className={`rounded-2xl border p-6 md:p-8 transition duration-300 ${
+                    experience.featured
+                      ? "border-slate-700 bg-[#111821]"
+                      : "border-slate-800 bg-[#111821]/60 hover:border-slate-700"
+                  }`}
+                >
+                  {/* Top information */}
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-5 mb-7">
+                    <div>
+                      <div className="flex flex-wrap items-center gap-3 mb-3">
+                        <span className="text-sm font-medium text-sky-400">
+                          {experience.role}
+                        </span>
+
+                        {experience.featured && (
+                          <>
+                            <span className="h-1 w-1 rounded-full bg-slate-700" />
+
+                            <span className="rounded-full border border-sky-400/20 bg-sky-400/5 px-2.5 py-1 text-[11px] font-medium text-sky-300">
+                              Latest Experience
+                            </span>
+                          </>
+                        )}
+                      </div>
+
+                      <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">
+                        {experience.company}
+                      </h3>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-sm text-slate-500 shrink-0">
+                      <CalendarDays size={16} />
+                      <span>{experience.period}</span>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="max-w-3xl text-slate-400 leading-relaxed mb-7">
+                    {experience.description}
+                  </p>
+
+                  <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8">
+                    {/* Technologies */}
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-[0.14em] text-slate-600 mb-4">
+                        Technologies
+                      </p>
+
+                      <div className="flex flex-wrap gap-2">
+                        {experience.technologies.map((technology) => (
+                          <span
+                            key={technology}
+                            className="rounded-md border border-slate-800 bg-[#0b0f14] px-3 py-1.5 text-xs text-slate-300"
+                          >
+                            {technology}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Highlights */}
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-[0.14em] text-slate-600 mb-4">
+                        What I Worked On
+                      </p>
+
+                      <ul className="space-y-3">
+                        {experience.highlights.map((highlight) => (
+                          <li
+                            key={highlight}
+                            className="flex gap-3 text-sm leading-relaxed text-slate-400"
+                          >
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-600" />
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Featured project connection */}
+                  {experience.featured && (
+                    <div className="mt-8 border-t border-slate-800 pt-6">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div className="flex items-center gap-3 text-sm text-slate-400">
+                          <BriefcaseBusiness size={17} className="text-sky-400" />
+                          <span>
+                            Full-stack development & secure software engineering
+                          </span>
+                        </div>
+
+                        <a
+                          href="https://github.com/MsdAmine/cspj-mini-mail"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 transition hover:text-sky-400"
+                        >
+                          View Project
+                          <ArrowUpRight size={15} />
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Mobile index */}
+                <span className="md:hidden block mt-3 font-mono text-[11px] text-slate-700">
+                  EXPERIENCE / 0{index + 1}
                 </span>
-              </div>
-
-              <p className="text-slate-300 leading-relaxed mb-6 max-w-3xl">
-                {experience.description}
-              </p>
-
-              <ul className="space-y-3">
-                {experience.highlights.map((highlight) => (
-                  <li
-                    key={highlight}
-                    className="flex gap-3 text-slate-400"
-                  >
-                    <span className="text-sky-400 mt-1">▹</span>
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
