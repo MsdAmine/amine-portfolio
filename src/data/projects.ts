@@ -1,34 +1,111 @@
 export const featuredProjects = [
   {
-    title: "Artisan Marketplace",
+    title: "CSPJ Mini-Mail",
+    category: "Secure Institutional Platform",
     description:
-      "Marketplace platform connecting artisans and customers with recommendation features, authentication, social interactions, and modern web technologies.",
-    technologies: ["React", "Node.js", "MongoDB", "Redis", "Neo4j"],
+      "A full-stack institutional messaging platform focused on secure communication, role-based access, and administrative workflows.",
+    technologies: [
+      "ASP.NET Core 10",
+      "React 19",
+      "SQL Server",
+      "JWT",
+      "TOTP 2FA",
+    ],
+    highlights: [
+      "Secure authentication with JWT and TOTP-based 2FA",
+      "Thread-based messaging with attachments and group conversations",
+      "Role-based administration and audit logging",
+      "Support ticketing and institutional management",
+    ],
+    github: "https://github.com/MsdAmine/cspj-mini-mail",
+  },
+
+  {
+    title: "Artisan Marketplace",
+    category: "Full-Stack Web Application",
+    description:
+      "A full-stack marketplace connecting customers with independent artisans, combining e-commerce features with social interactions and data-driven recommendations.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Redis",
+      "Neo4j",
+    ],
+    highlights: [
+      "JWT authentication with customer, artisan, and admin roles",
+      "Product catalog, cart, orders, and artisan profiles",
+      "Neo4j-powered social graph and recommendations",
+      "Redis caching and notification streams",
+    ],
     github: "https://github.com/MsdAmine/artisan-marketplace",
   },
+
   {
-    title: "SafeBite",
+    title: "NutriSafe",
+    category: "EMSI TECH HACKATHON 2026",
     description:
-      "Application focused on helping users make informed food-related decisions through technology-driven solutions.",
-    technologies: ["React", "TypeScript"],
+      "A smart food safety companion designed to help users scan food products, detect allergens, and make more informed food choices.",
+    technologies: [
+      "Android",
+      "Kotlin",
+      "Firebase",
+      "AI",
+      "Barcode Scanning",
+    ],
+    highlights: [
+      "Food product and ingredient scanning",
+      "Allergen detection and food safety information",
+      "AI-powered food suggestions",
+      "Google Sign-In and direct APK distribution",
+    ],
     github: "https://github.com/MsdAmine/SafeBite",
-  },
-  {
-    title: "E-Recruitment System",
-    description:
-      "Recruitment platform connecting candidates and recruiters with role-based workflows and application management.",
-    technologies: ["Spring Boot", "React", "PostgreSQL"],
-    github: "https://github.com/MsdAmine/e-recrutement-system",
+    live: "https://nutrisafe-website.vercel.app/",
   },
 ];
 
 export const otherProjects = [
   {
-    title: "Medical Office Management",
-    github: "https://github.com/MsdAmine/Medical-Office-Management",
+    title: "E-Recruitment System",
+    category: "Recruitment Platform",
+    description:
+      "A full-stack recruitment platform supporting candidates and recruiters through job offers, applications, role-based workflows, and notifications.",
+    technologies: [
+      "Spring Boot",
+      "Java 17",
+      "React",
+      "TypeScript",
+      "PostgreSQL",
+      "JWT",
+    ],
+    highlights: [
+      "Candidate and recruiter role-based access",
+      "Job offer lifecycle management",
+      "Application tracking and status updates",
+      "Notifications for recruitment events",
+    ],
+    github: "https://github.com/MsdAmine/e-recrutement-system",
   },
+
   {
-    title: "CSPJ Mini Mail",
-    github: "https://github.com/MsdAmine/cspj-mini-mail",
+    title: "Medical Office Management",
+    category: "Healthcare Management",
+    description:
+      "An internal medical practice management application designed to centralize patient information and streamline daily operations through role-based workflows.",
+    technologies: [
+      "ASP.NET Core MVC",
+      "Razor",
+      "Tailwind CSS",
+      "C#",
+    ],
+    highlights: [
+      "Role-based access for administrators, doctors, secretaries, and patients",
+      "Patient management with filtering and detailed views",
+      "Operational dashboard with KPIs",
+      "Structured MVC architecture with Controllers and ViewModels",
+    ],
+    github: "https://github.com/MsdAmine/Medical-Office-Management",
   },
 ];
