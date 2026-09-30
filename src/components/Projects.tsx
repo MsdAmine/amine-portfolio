@@ -46,21 +46,29 @@ function Projects() {
                     {/* Image */}
                     <div className="relative flex flex-1 items-center justify-center">
                       <div
-                        className={`w-full overflow-hidden rounded-xl border border-slate-800 bg-[#0b0f14] shadow-2xl ${
-                          project.title === "NutriSafe"
+                        className={`w-full overflow-hidden rounded-xl border border-slate-800 bg-[#0b0f14] shadow-2xl ${project.title === "NutriSafe"
                             ? "flex justify-center"
                             : ""
-                        }`}
+                          }`}
                       >
-                        <img
-                          src={project.image}
-                          alt={`${project.title} project screenshot`}
-                          className={
-                            project.title === "NutriSafe"
-                              ? "block max-h-[360px] w-auto max-w-full object-contain transition duration-500 group-hover:scale-[1.02]"
-                              : "block w-full object-cover transition duration-500 group-hover:scale-[1.02]"
-                          }
-                        />
+                        {project.images ? (
+                          <div className="grid grid-cols-2 gap-3 w-full">
+                            {project.images.map((image, imageIndex) => (
+                              <img
+                                key={image}
+                                src={image}
+                                alt={`${project.title} project screenshot ${imageIndex + 1}`}
+                                className="block w-full max-h-[360px] rounded-lg object-contain transition duration-500 group-hover:scale-[1.02]"
+                              />
+                            ))}
+                          </div>
+                        ) : (
+                          <img
+                            src={project.image}
+                            alt={`${project.title} project screenshot`}
+                            className="block w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                          />
+                        )}
                       </div>
                     </div>
 

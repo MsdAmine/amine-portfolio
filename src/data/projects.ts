@@ -65,7 +65,10 @@ export const featuredProjects = [
     ],
     github: "https://github.com/MsdAmine/SafeBite",
     live: "https://nutrisafe-website.vercel.app/",
-    image: "/projects/nutrisafe.png",
+    images: [
+      "/projects/nutrisafe-1.png",
+      "/projects/nutrisafe-2.png",
+    ],
   },
 ];
 

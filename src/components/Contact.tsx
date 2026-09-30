@@ -52,17 +52,6 @@ function Contact() {
               </a>
             </div>
 
-            {/* Email address */}
-            <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-3 text-sm">
-              <span className="text-slate-600">Email</span>
-
-              <a
-                href="mailto:moussaid.amine19@gmail.com"
-                className="text-slate-400 transition hover:text-sky-400"
-              >
-                moussaid.amine19@gmail.com
-              </a>
-            </div>
           </div>
         </div>
       </div>
